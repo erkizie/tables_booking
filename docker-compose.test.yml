@@ -1,0 +1,6 @@
+version: '3.5'
+services:
+  web:
+    environment:
+      - RAILS_ENV=test
+      - POSTGRES_DB=empty_test
