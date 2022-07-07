@@ -6,7 +6,7 @@ class Api::V1::TablesBookingController < ApplicationController
     if table
       render json: table
     else
-      render json: { message: "Sorry, there are no free table for that time" }
+      render json: { message: "Sorry, there are no free tables for the given time" }
     end
   end
 end
