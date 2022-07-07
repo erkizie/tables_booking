@@ -1,24 +1,48 @@
-# README
+# Tables Booking
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The application for tables booking management. Tech Task
 
-Things you may want to cover:
+## Running with Docker Compose
 
-* Ruby version
+1. Prepare `.env` file. Copy `.env.example` to `.env`. Replace vars if needed.
 
-* System dependencies
+2. Build images and run setup
 
-* Configuration
+   ```sh
+   docker-compose build
+   docker-compose run --rm web bundle install
+   docker-compose run --rm web rails db:setup
+   ```
 
-* Database creation
+3. Run the web and Postgres DB
 
-* Database initialization
+   ```sh
+   docker-compose up
+   ```
 
-* How to run the test suite
+   <dl>
+       <dt><code>-d</code></dt>
+       <dd>to run in detached mode</dd>
+       <dt><code>--build</code></dt>
+       <dd>to rebuild</dd>
+   </dl>
 
-* Services (job queues, cache servers, search engines, etc.)
+4. Run `bundle install` to install missing gems.
 
-* Deployment instructions
+   ```sh
+   bundle install
+   ```
 
-* ...
+5. Stop the application
+
+   ```sh
+   docker-compose down
+   ```
+
+## Debugging
+
+Put `binding.pry` wherever you need, run your flow and attach the container to enter console for debugging session
+
+```sh
+docker attach %web_container_name%
+```
